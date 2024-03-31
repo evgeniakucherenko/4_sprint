@@ -29,16 +29,16 @@
                                 <rect key="frame" x="20" y="58" width="374" height="804"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="250" translatesAutoresizingMaskIntoConstraints="NO" id="Nrz-V0-rgJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="362" height="23.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="372" height="23.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вопрос: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e7u-Ck-NcP" userLabel="Question Title Label">
-                                                <rect key="frame" x="0.0" y="0.0" width="76" height="23.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="81.5" height="23.5"/>
                                                 <fontDescription key="fontDescription" name="YSDisplay-Medium" family="YS Display" pointSize="20"/>
                                                 <color key="textColor" name="yP white"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="1/10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vsS-Ks-ju9" userLabel="Index Label">
-                                                <rect key="frame" x="326" y="0.0" width="36" height="23.5"/>
+                                                <rect key="frame" x="331.5" y="0.0" width="40.5" height="23.5"/>
                                                 <fontDescription key="fontDescription" name="YSDisplay-Medium" family="YS Display" pointSize="20"/>
                                                 <color key="textColor" name="yP white"/>
                                                 <nil key="highlightedColor"/>
@@ -56,10 +56,10 @@
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rhf-P7-Lm9">
-                                        <rect key="frame" x="0.0" y="624.5" width="365.5" height="99.5"/>
+                                        <rect key="frame" x="0.0" y="624.5" width="370" height="99.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Рейтинг этого фильма меньше чем 5?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="250" translatesAutoresizingMaskIntoConstraints="NO" id="wd4-SP-Ke5" userLabel="Question Label">
-                                                <rect key="frame" x="60" y="8" width="245.5" height="83.5"/>
+                                                <rect key="frame" x="60" y="8" width="250" height="83.5"/>
                                                 <fontDescription key="fontDescription" name="YSDisplay-Bold" family="YS Display" pointSize="23"/>
                                                 <color key="textColor" name="yP white"/>
                                                 <nil key="highlightedColor"/>
