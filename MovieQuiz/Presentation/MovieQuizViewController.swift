@@ -13,7 +13,7 @@ final class MovieQuizViewController: UIViewController {
         let convertCurrentQuestion = convert(model: currentQuestion)
         show(quiz: convertCurrentQuestion)
     }
-            
+     
     private func show(quiz step: QuizStepViewModel) {
         imageView.image = step.image
         textLabel.text = step.question
