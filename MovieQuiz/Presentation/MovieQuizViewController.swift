@@ -4,7 +4,7 @@ final class MovieQuizViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         noButton.layer.cornerRadius = 15
         yesButton.layer.cornerRadius = 15
         previewImage.layer.cornerRadius = 20
@@ -18,11 +18,11 @@ final class MovieQuizViewController: UIViewController {
         imageView.image = step.image
         textLabel.text = step.question
         counterLabel.text = step.questionNumber
-        imageView.layer.borderWidth = 0
-        
+        imageView.layer.borderColor = UIColor.clear.cgColor
     }
             
     private func showAnswerResult(isCorrect: Bool) {
+        isEnabled = false
         if isCorrect {
             correctAnswers += 1
         }
@@ -30,26 +30,31 @@ final class MovieQuizViewController: UIViewController {
         imageView.layer.borderWidth = 8
         imageView.layer.borderColor = isCorrect ? UIColor(resource: .yPGreen).cgColor : UIColor(resource: .yPRed).cgColor
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            self.isEnabled = true
             self.showNextQuestionOrResults()
         }
     }
             
-    
     @IBAction private func yesButtonClicked(_ sender: Any) { 
-        let currentQuestion = questions[0]
-        let givenAnswer = true
-        showAnswerResult(isCorrect: givenAnswer == currentQuestion.correctAnswer)
+        if isEnabled {
+            let currentQuestion = questions[0]
+            let givenAnswer = true
+            showAnswerResult(isCorrect: givenAnswer == currentQuestion.correctAnswer)
+        }
     }
     
+    @IBOutlet private var noButton: UIButton!
+    @IBOutlet private var yesButton: UIButton!
+    @IBOutlet private var previewImage: UIImageView!
     
-    @IBOutlet weak var noButton: UIButton!
-    @IBOutlet weak var yesButton: UIButton!
-    @IBOutlet weak var previewImage: UIImageView!
+    private var isEnabled = true
     
     @IBAction private func noButtonClicked(_ sender: Any) {
-        let currentQuestion = questions[currentQuestionIndex]
-        let givenAnswer = false
-        showAnswerResult(isCorrect: givenAnswer == currentQuestion.correctAnswer)
+        if isEnabled {
+            let currentQuestion = questions[currentQuestionIndex]
+            let givenAnswer = false
+            showAnswerResult(isCorrect: givenAnswer == currentQuestion.correctAnswer)
+        }
     }
     
     @IBOutlet private var imageView: UIImageView!
