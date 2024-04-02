@@ -22,7 +22,7 @@ final class MovieQuizViewController: UIViewController {
     }
             
     private func showAnswerResult(isCorrect: Bool) {
-        isEnabled = false
+        changeStateButtons(isEnabled: false)
         if isCorrect {
             correctAnswers += 1
         }
@@ -30,17 +30,20 @@ final class MovieQuizViewController: UIViewController {
         imageView.layer.borderWidth = 8
         imageView.layer.borderColor = isCorrect ? UIColor(resource: .yPGreen).cgColor : UIColor(resource: .yPRed).cgColor
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            self.isEnabled = true
+            self.changeStateButtons(isEnabled: true)
             self.showNextQuestionOrResults()
         }
     }
+    
+    private func changeStateButtons(isEnabled: Bool) {
+          yesButton.isEnabled = isEnabled
+          noButton.isEnabled = isEnabled
+      }
             
-    @IBAction private func yesButtonClicked(_ sender: Any) { 
-        if isEnabled {
-            let currentQuestion = questions[0]
-            let givenAnswer = true
-            showAnswerResult(isCorrect: givenAnswer == currentQuestion.correctAnswer)
-        }
+    @IBAction private func yesButtonClicked(_ sender: Any) {
+        let currentQuestion = questions[0]
+        let givenAnswer = true
+        showAnswerResult(isCorrect: givenAnswer == currentQuestion.correctAnswer)
     }
     
     @IBOutlet private var noButton: UIButton!
@@ -50,11 +53,9 @@ final class MovieQuizViewController: UIViewController {
     private var isEnabled = true
     
     @IBAction private func noButtonClicked(_ sender: Any) {
-        if isEnabled {
-            let currentQuestion = questions[currentQuestionIndex]
-            let givenAnswer = false
-            showAnswerResult(isCorrect: givenAnswer == currentQuestion.correctAnswer)
-        }
+        let currentQuestion = questions[currentQuestionIndex]
+        let givenAnswer = false
+        showAnswerResult(isCorrect: givenAnswer == currentQuestion.correctAnswer)
     }
     
     @IBOutlet private var imageView: UIImageView!
