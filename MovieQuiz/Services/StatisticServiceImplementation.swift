@@ -41,19 +41,19 @@ final class StatisticServiceImplementation: StatisticService {
     }
         
     internal var gamesCount: Int {
-            get {
-                return userDefaults.integer(forKey: Keys.gamesCount.rawValue)
-            }
-            set {
-                userDefaults.set(newValue, forKey: Keys.gamesCount.rawValue)
-            }
+        get {
+            return userDefaults.integer(forKey: Keys.gamesCount.rawValue)
         }
+        set {
+            userDefaults.set(newValue, forKey: Keys.gamesCount.rawValue)
+        }
+    }
         
         
     internal var bestGame: GameRecord {
         get {
             guard let data = userDefaults.data(forKey: Keys.bestGame.rawValue),
-                  let record = try? JSONDecoder().decode(GameRecord.self, from: data)
+                let record = try? JSONDecoder().decode(GameRecord.self, from: data)
             else {
                 return .init(correct: 0, total: 0, date: Date())
             }
@@ -70,11 +70,11 @@ final class StatisticServiceImplementation: StatisticService {
     }
             
     internal var totalAccuracy: Double {
-                if total == 0 {
-                    return 0
-                } else {
-                    return Double(correct) / Double(total)
-                }
+        if total == 0 {
+            return 0
+        } else {
+            return Double(correct) / Double(total)
+        }
     }
             
     internal func store(correct count: Int, total amount: Int) {
@@ -82,13 +82,11 @@ final class StatisticServiceImplementation: StatisticService {
         self.total += amount
         let newGameRecord = GameRecord(correct: count, total: amount, date: Date())
         var currentBestGame = bestGame
-                if newGameRecord.isBetterThan(currentBestGame) {
-                    currentBestGame = newGameRecord
-                    bestGame = currentBestGame
-                    userDefaults.set(try? JSONEncoder().encode(currentBestGame), forKey: Keys.bestGame.rawValue)
-                }
+        if newGameRecord.isBetterThan(currentBestGame) {
+            currentBestGame = newGameRecord
+            bestGame = currentBestGame
+            userDefaults.set(try? JSONEncoder().encode(currentBestGame), forKey: Keys.bestGame.rawValue)
+        }
    }
-            
-            
 }
 

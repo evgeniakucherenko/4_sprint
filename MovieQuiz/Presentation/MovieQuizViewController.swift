@@ -14,7 +14,6 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate {
            DispatchQueue.main.async { [weak self] in
                 self?.show(quiz: viewModel)
            }
-           
     }
     
     // MARK: - Lifecycle
@@ -29,9 +28,7 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate {
         questionFactory.setup(delegate: self)
         questionFactory.requestNextQuestion()
         statisticService = StatisticServiceImplementation()
-
     }
-    
     
     private func show(quiz step: QuizStepViewModel) {
         imageView.image = step.image
@@ -148,16 +145,16 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate {
     }
     
     private func show(quiz result: QuizResultsViewModel) {
-            let alertModel = AlertModel(
-                title: result.title,
-                message: gameStatsText,
-                buttonText: result.buttonText) { [weak self] in
-                    self?.currentQuestionIndex = 0
-                    self?.correctAnswers = 0
-                    self?.questionFactory?.requestNextQuestion()
-                }
-            alertPresenter.showAlert(model: alertModel)
-        }
+        let alertModel = AlertModel(
+            title: result.title,
+            message: gameStatsText,
+            buttonText: result.buttonText) { [weak self] in
+                self?.currentQuestionIndex = 0
+                self?.correctAnswers = 0
+                self?.questionFactory?.requestNextQuestion()
+            }
+        alertPresenter.showAlert(model: alertModel)
+    }
 }
 
  
