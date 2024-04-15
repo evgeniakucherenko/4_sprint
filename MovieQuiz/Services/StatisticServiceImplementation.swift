@@ -40,7 +40,7 @@ final class StatisticServiceImplementation: StatisticService {
         }
     }
         
-    internal var gamesCount: Int {
+    var gamesCount: Int {
         get {
             return userDefaults.integer(forKey: Keys.gamesCount.rawValue)
         }
@@ -50,7 +50,7 @@ final class StatisticServiceImplementation: StatisticService {
     }
         
         
-    internal var bestGame: GameRecord {
+    var bestGame: GameRecord {
         get {
             guard let data = userDefaults.data(forKey: Keys.bestGame.rawValue),
                 let record = try? JSONDecoder().decode(GameRecord.self, from: data)
@@ -69,7 +69,7 @@ final class StatisticServiceImplementation: StatisticService {
         }
     }
             
-    internal var totalAccuracy: Double {
+    var totalAccuracy: Double {
         if total == 0 {
             return 0
         } else {
@@ -77,7 +77,7 @@ final class StatisticServiceImplementation: StatisticService {
         }
     }
             
-    internal func store(correct count: Int, total amount: Int) {
+    func store(correct count: Int, total amount: Int) {
         self.correct += count
         self.total += amount
         let newGameRecord = GameRecord(correct: count, total: amount, date: Date())
