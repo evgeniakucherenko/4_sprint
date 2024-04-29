@@ -15,6 +15,10 @@ final class QuestionFactory: QuestionFactoryProtocol  {
     }
     
     func loadData() {
+       if movies.count > 0 {
+           requestNextQuestion()
+                return
+        }
         moviesLoader.loadMovies { [weak self] result in
         DispatchQueue.main.async {
             guard let self else { return }

@@ -119,8 +119,9 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Z2X-uD-8gG">
-                                <rect key="frame" x="197" y="438" width="20" height="4"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="qnZ-vq-KZs">
+                                <rect key="frame" x="20" y="438" width="374" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -128,8 +129,6 @@
                         <constraints>
                             <constraint firstItem="KXw-T5-m2k" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="2qU-I6-6jh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KXw-T5-m2k" secondAttribute="trailing" constant="20" id="2t6-i4-Moh"/>
-                            <constraint firstItem="Z2X-uD-8gG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5gk-qj-YEY"/>
-                            <constraint firstItem="Z2X-uD-8gG" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Kv0-9c-r3g"/>
                             <constraint firstItem="KXw-T5-m2k" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="Wat-Lt-ZaR"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="KXw-T5-m2k" secondAttribute="bottom" id="d1E-3b-h2x"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="XiQ-b0-8Lq" secondAttribute="bottom" id="e4j-6j-WOz"/>
@@ -138,7 +137,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="activityIndicator" destination="ryq-Lr-bPi" id="nRc-Eg-6wP"/>
+                        <outlet property="activityIndicator" destination="qnZ-vq-KZs" id="VJp-mv-mRY"/>
                         <outlet property="counterLabel" destination="vsS-Ks-ju9" id="Ht9-dk-Imm"/>
                         <outlet property="imageView" destination="ryq-Lr-bPi" id="Juk-e8-7Fe"/>
                         <outlet property="noButton" destination="ouu-Ig-zAc" id="mQb-df-UpL"/>
